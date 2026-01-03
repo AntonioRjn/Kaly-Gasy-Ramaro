@@ -1,0 +1,542 @@
+/* === RESET ET BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fcfcfc;
+    color: #333;
+    /* IMPORTANT : On pousse le contenu vers le bas de 80px 
+       pour qu'il ne soit pas caché sous le header fixe */
+    padding-top: 80px; 
+}
+
+/* === HEADER === */
+.header-principal {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    
+    /* Fixation du header */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; /* Prend toute la largeur */
+    z-index: 1000; /* Reste au-dessus des autres éléments */
+    padding: 15px 0;
+}
+
+.conteneur {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Utilitaire Flexbox pour aligner le contenu du header */
+.header-principal .conteneur {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo .point {
+    color: #e74c3c;
+    font-size: 30px;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #e74c3c;
+}
+
+.actions-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.lien-simple {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.bouton-panier {
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.bouton-panier:hover {
+    background-color: #e74c3c;
+}
+
+/* === HERO (BANNIÈRE) === */
+.hero {
+    height: 500px;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contenu-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.contenu-hero p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.bouton-principal {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.bouton-principal:hover {
+    transform: scale(1.05);
+    background-color: #c0392b;
+}
+
+/* === PRODUITS === */
+.section-produits {
+    padding-bottom: 60px;
+}
+
+.titre-section {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.grille-produits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.carte-produit {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+
+.carte-produit:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Remplacez l'ancienne règle .image-produit par celle-ci */
+.image-menu {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Permet de remplir l'espace sans déformer l'image */
+    display: block;
+}
+
+/* On s'assure que les cartes gardent une belle apparence */
+.carte-produit {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-produit {
+    padding: 20px;
+    text-align: center;
+}
+
+.info-produit h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.prix {
+    font-size: 20px;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.bouton-ajout {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.bouton-ajout:hover {
+    background-color: #555;
+}
+
+/* === FOOTER SIMPLE === */
+.pied-de-page {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+
+
+/* === SECTION HERO AVEC LA VRAIE PHOTO === */
+.hero {
+    height: 85vh; /* Prend 85% de la hauteur de l'écran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* On utilise un dégradé sombre PAR-DESSUS l'image pour le style moderne */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('image/Kaly Gasy Ramaro.jpeg');
+    
+    background-size: cover;      /* L'image remplit tout l'espace sans se déformer */
+    background-position: center;   /* Centre la photo (important pour voir les gens/l'enseigne) */
+    background-attachment: scroll;  /* Effet parallaxe stylé quand on scrolle */
+    margin-bottom: 60px;
+}
+
+/* === TEXTE PAR-DESSUS L'IMAGE === */
+.contenu-hero h1 {
+    font-size: 56px;
+    color: #ffffff; /* Texte en blanc pour le contraste */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.3); /* Ombre portée pour le style */
+    margin-bottom: 20px;
+}
+
+.contenu-hero p {
+    font-size: 20px;
+    color: #f1f1f1;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+/* Ajustement du bouton pour qu'il ressorte bien */
+.bouton-principal {
+    padding: 15px 40px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* === SECTION HERO CLAIRE ET MODERNE === */
+.hero {
+    position: relative;
+    height: 70vh; /* Hauteur équilibrée */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* On garde l'image avec sa netteté originale */
+    background-image: url('image/Kaly Gasy Ramaro.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* Défile normalement avec le texte */
+
+    /* Style moderne : coins légèrement arrondis et bordure fine */
+    margin: 15px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Overlay léger : On assombrit très peu pour laisser la photo visible */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dégradé radial : plus sombre au centre (sous le texte) et clair sur les bords */
+    background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 100%);
+    z-index: 1;
+}
+
+/* === STYLE DU TEXTE (Pour qu'il reste lisible sans cacher la photo) === */
+.contenu-hero {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.contenu-hero h1 {
+    font-size: 50px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    /* Ombre portée sur le texte pour ne pas avoir à trop assombrir la photo */
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); 
+    margin-bottom: 15px;
+}
+
+.contenu-hero p {
+    font-size: 18px;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 25px;
+}
+
+/* === SECTION HERO ALLONGÉE === */
+.hero {
+    position: relative;
+    /* 100vh = 100% de la hauteur de l'écran de l'utilisateur */
+    height: 85vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* Image nette et visible */
+    background-image: url('image/Kaly Gasy Ramaro.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; 
+
+    /* Style moderne sans trop cacher la photo */
+    margin: 0; /* On retire les marges pour qu'elle prenne tout l'espace visuel */
+    overflow: hidden;
+}
+
+/* Overlay très discret pour la lisibilité du texte */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* On garde la photo très claire, juste un voile léger au centre */
+    background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 80%);
+    z-index: 1;
+}
+
+/* === AJUSTEMENT POUR LA SECTION SUIVANTE === */
+.section-produits {
+    padding-top: 80px; /* Ajoute de l'espace avant le titre "Menu" */
+    padding-bottom: 60px;
+}
+
+.titre-section {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #333;
+    font-weight: 700;
+}
+
+.section-propos {
+    padding: 80px 0;
+    background-color: #f9f9f9; /* Un fond gris très léger pour séparer du menu */
+}
+
+.propos-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.propos-texte {
+    flex: 1;
+    min-width: 300px;
+}
+
+.propos-texte p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.propos-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.img-arrondie {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}   
+
+
+/* === FOOTER MODERNE === */
+.pied-de-page {
+    background-color: #1a1a1a; /* Noir profond moderne */
+    color: #ffffff;
+    padding: 80px 0 30px 0;
+    margin-top: 80px;
+}
+
+.grille-footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.colonne-footer h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+
+/* Style du Logo dans le footer */
+.logo-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.img-logo-footer {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.description-footer {
+    line-height: 1.6;
+    color: #bbb;
+    font-size: 14px;
+}
+
+/* Liste de liens */
+.colonne-footer ul {
+    list-style: none;
+}
+
+.colonne-footer ul li {
+    margin-bottom: 12px;
+}
+
+.colonne-footer ul a {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.colonne-footer ul a:hover {
+    color: #e74c3c;
+    padding-left: 5px;
+}
+
+/* Contact & Réseaux Sociaux */
+.contact-info {
+    font-size: 14px;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.reseaux-sociaux {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.icone-social {
+    background: rgba(255,255,255,0.1);
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.icone-social:hover {
+    background: #e74c3c;
+    transform: translateY(-3px);
+}
+
+/* Ligne de copyright */
+.footer-bas {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    font-size: 13px;
+    color: #777;
+}
