@@ -457,6 +457,8 @@ body {
 }
 
 
+
+
 /* Style du Logo dans le footer */
 .logo-footer {
     display: flex;
@@ -539,4 +541,74 @@ body {
     padding-top: 30px;
     font-size: 13px;
     color: #777;
+}
+
+
+/* === RESPONSIVITÉ (Mobile & Tablette) === */
+
+/* Pour les tablettes et téléphones */
+@media (max-width: 992px) {
+    .contenu-hero h1 {
+        font-size: 40px; /* Texte un peu plus petit sur tablette */
+    }
+    
+    .propos-flex {
+        flex-direction: column; /* On empile le texte et l'image au lieu de les mettre côte à côte */
+        text-align: center;
+    }
+}
+
+/* Pour les téléphones portables (Smartphone) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Ajustement pour le header mobile */
+    }
+
+    .header-principal .conteneur {
+        flex-direction: column; /* Logo au dessus du menu */
+        gap: 10px;
+    }
+
+    .navigation ul {
+        gap: 15px;
+        flex-wrap: wrap; /* Le menu passe sur deux lignes si besoin */
+        justify-content: center;
+    }
+
+    .navigation a {
+        font-size: 14px;
+    }
+
+    .hero {
+        height: 60vh; /* Hauteur réduite pour les petits écrans */
+    }
+
+    .contenu-hero h1 {
+        font-size: 30px; /* Titre adapté aux écrans de téléphone */
+    }
+
+    .contenu-hero p {
+        font-size: 16px;
+    }
+
+    .titre-section {
+        font-size: 28px;
+    }
+
+    .grille-produits {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* 2 colonnes sur mobile */
+        gap: 15px;
+    }
+
+    .image-menu {
+        height: 180px; /* Images plus petites sur mobile */
+    }
+
+    .info-produit h3 {
+        font-size: 16px;
+    }
+
+    .prix {
+        font-size: 16px;
+    }
 }
